@@ -1,0 +1,11 @@
+  <p>Title</p>
+  <span><%= @book.title %></span>
+
+  <p>Opinion</p>
+  <span><%= @book.body %></span>
+
+ <div>
+   <%= link_to "edit", edit_book_path(@book) %>
+    |
+   <a href="/books">Back</a>
+ </div>

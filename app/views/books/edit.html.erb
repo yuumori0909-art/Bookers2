@@ -1,0 +1,17 @@
+<h1>Editing Book</h1>
+
+<%= form_with model: @book, method: :patch do |book| %>
+
+  <h4>Title</h4>
+  <%= book.text_field :title %>
+  
+  <h4>Opinion</h4>
+  <%= book.text_area :body %>
+  
+  <%= book.submit 'Update Book' %>
+  
+<% end %>
+
+<%= link_to "Show", book_path(@book) %>
+  |
+<a href="/books">Back</a>
