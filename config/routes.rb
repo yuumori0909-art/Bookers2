@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
+   root to: "homes#top"
   resources :books
-  resources :users, only: [:new, :create] , path_names: { new: 'sign_up' }
+  resources :users, only: [:new, :create, :show, :edit] , path_names: { new: 'sign_up' }
   
   resource :session
   resources :passwords, param: :token
-  root to: "homes#top"
   get "homes/about"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

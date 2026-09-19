@@ -1,2 +1,76 @@
-<h1>topページ</h1>
+<header>
+  <nav class="navbar navbar-dark bg-dark">
+    <div class="container">
+      <span class="navbar-brand">Bookers</span>
+
+      <ul class="navbar-nav flex-row ms-auto">
+        <li class="nav-item ms-3">
+          <a href="/">
+            <i class="fa-solid fa-home"></i>
+            home
+          </a>  
+        </li>
+        <li class="nav-item ms-3">
+          <a href="/homes/about">
+            <i class="fa-solid fa-link"></i>
+            About
+          </a>  
+        </li>
+        <li class="nav-item ms-3">
+          <a href="/users/sign_up">
+            <i class="fa-solid fa-user-plus"></i>
+            sign up
+          </a>
+        </li>
+        <li class="nav-item ms-3">
+          <a href="/session/new">
+            <i class="fa-solid fa-sign-in-alt"></i>
+            Log in
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<main class="container-fluid">
+  <div class="row justify-content-center mt-2">
+    <div class="col-5">
+      <h1>
+        Welcome to
+        <i class="fa-solid fa-book" aria-hidden="true"></i>
+        <strong>Bookers</strong> !!
+      </h1>
+
+      <p>
+        <i class="fa-solid fa-book" aria-hidden="true"></i>
+        In <strong>Bookers</strong>,
+      </p>
+
+      <p>
+        you can share and exchange your opinions, impressions, and emotions<br>
+        about various books!
+      </p>
+    </div>
+  </div>
+
+  <div class="btn-wrapper d-flex flex-column align-items-center mt-4 gap-3">
+
+    <%= link_to "Log in", new_session_path,
+      class: "btn btn-login" %>
+
+    <%= link_to "Sign up", new_user_path,
+      class: "btn btn-signup" %>
+  </div>
+</main>
+
+<footer>
+  <div class="container-fluid">
+    <div class="row justify-content-center mt-5">
+      <div class="col-2">
+        <p>CopyRight Infratop.inc</p>
+      </div>
+    </div>
+  </div>
+</footer>
 

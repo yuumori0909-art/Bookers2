@@ -8,3 +8,20 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+ * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* ログインボタン */
+.btn-login {
+  background-color: #007bff;
+  color: #ffffff;
+}
+
+/* サインアップボタン */
+.btn-signup {
+  background-color: #28a745;
+  color: #ffffff;
+}

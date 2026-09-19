@@ -1,0 +1,33 @@
+<header>
+  <nav class="navbar navbar-dark bg-dark">
+    <div class="container">
+      <span class="navbar-brand">Bookers</span>
+
+      <ul class="navbar-nav flex-row ms-auto">
+        <li class="nav-item ms-3">
+          <%= link_to "Home", root_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item ms-3">
+          <%= link_to "About", homes_about_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item ms-3">
+          <%= link_to "Sign up", new_user_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item ms-3">
+          <%= link_to "Log in", new_session_path, class: "nav-link" %>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="text-center">
+        <p>CopyRight Infratop.inc</p>
+      </div>
+    </div>
+  </div>
+</footer>
