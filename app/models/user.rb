@@ -1,10 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
-  has_many :sessions, dependent: :destroy
-  has_many :books, dependent: :destroy
+  has_many :sessions, dependent: :destroy  
   
-  normalizes :email_address, with: ->(e) { e.strip.downcase }
-
   has_one_attached :profile_image
 
   def get_profile_image(width, height)
@@ -14,4 +11,10 @@ class User < ApplicationRecord
     end
     profile_image.variant(resize_to_limit: [width, height]).processed
   end
+
+  has_many :books, dependent: :destroy
+  
+  
+  normalizes :email_address, with: ->(e) { e.strip.downcase }
+
 end
