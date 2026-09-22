@@ -14,18 +14,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-/* ログインボタン */
-.btn.btn-login {
-  background-color: #007bff;
-  color: #ffffff;
-}
-
-/* サインアップボタン */
-.btn.btn-signup {
-  background-color: #28a745;
-  color: #ffffff;
-}
-
 /* 投稿ボタン　*/
 .btn.btn-create {
   background-color: #28a745;

@@ -1,37 +1,3 @@
-<header>
-  <nav class="navbar navbar-dark bg-dark">
-    <div class="container">
-      <span class="navbar-brand">Bookers</span>
-
-      <ul class="navbar-nav flex-row ms-auto">
-        <li class="nav-item ms-3">
-          <a href="/">
-            <i class="fa-solid fa-home"></i>
-            home
-          </a>  
-        </li>
-        <li class="nav-item ms-3">
-          <a href="/homes/about">
-            <i class="fa-solid fa-link"></i>
-            About
-          </a>  
-        </li>
-        <li class="nav-item ms-3">
-          <a href="/users/sign_up">
-            <i class="fa-solid fa-user-plus"></i>
-            sign up
-          </a>
-        </li>
-        <li class="nav-item ms-3">
-          <a href="/session/new">
-            <i class="fa-solid fa-sign-in-alt"></i>
-            Log in
-          </a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-</header>
 
 <main class="container-fluid">
   <div class="row justify-content-center mt-2">
@@ -43,8 +9,9 @@
       </h1>
 
       <p>
+        In
         <i class="fa-solid fa-book" aria-hidden="true"></i>
-        In <strong>Bookers</strong>,
+        <strong>Bookers</strong>,
       </p>
 
       <p>
@@ -57,10 +24,10 @@
   <div class="btn-wrapper d-flex flex-column align-items-center mt-4 gap-3">
 
     <%= link_to "Log in", new_session_path,
-      class: "btn btn-login" %>
+      class: "btn btn-info btn-sm btn-block mb-3 sign_in" %>
 
     <%= link_to "Sign up", new_user_path,
-      class: "btn btn-signup" %>
+      class: "btn btn-success btn-sm btn-block sign_up" %>
   </div>
 </main>
 

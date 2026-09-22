@@ -1,4 +1,15 @@
-<div class="container">
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h3><%= @user.errors.count %> error prohibited this obj from being saved:</h3>
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="container mt-3">
   <div class="row">
     <div class="col-md-6 mx-auto">
       <h2>User info</h2>
@@ -19,8 +30,18 @@
           <%= f.text_area :introduction, class: "form-control", rows: 3 %>
         </div>
 
-        <%= f.submit "Update User", class: "btn btn-secondary" %>
+        <%= f.submit "Update User", class: "btn btn-secondary mb-5" %>
       <% end %>
     </div>
   </div>
 </div>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="text-center">
+        <p>CopyRight Infratop.inc</p>
+      </div>
+    </div>
+  </div>
+</footer>

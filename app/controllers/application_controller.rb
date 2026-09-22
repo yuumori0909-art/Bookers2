@@ -10,7 +10,8 @@ class ApplicationController < ActionController::Base
     end # ログイン後の遷移先をログインユーザーのページに設定
 
     def after_logout_url
-      root_path
+      flash[:notice] = "Signed out successfully."
+      redirect_to root_path
     end
   end
 

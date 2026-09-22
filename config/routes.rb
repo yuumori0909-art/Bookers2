@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   root to: "homes#top"
-  get "homes/about"
+  get 'home/about' => 'homes#about', as: 'about'
   resources :books
-  resources :users, only: [:new, :create, :index, :show, :edit] , path_names: { new: 'sign_up' }
+  resources :users, only: [:new, :create, :index, :show, :edit, :update] , path_names: { new: 'sign_up' }
   
   resource :session
   resources :passwords, param: :token

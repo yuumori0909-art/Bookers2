@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
   def create
     if (user = User.find_by(name: params[:name]))&.authenticate(params[:password])
       start_new_session_for user
+      flash[:notice] = "Welcome! You have signed up successfully."#ログイン成功時フラッシュメッセージ
       redirect_to user_path(user)
     else
       redirect_to new_session_path, alert: "Try another email address or password."
@@ -16,6 +17,6 @@ class SessionsController < ApplicationController
 
   def destroy
     terminate_session
-    redirect_to new_session_path
+    after_logout_url
   end
 end
