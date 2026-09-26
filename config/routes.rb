@@ -6,8 +6,14 @@ Rails.application.routes.draw do
     resource :favorite, only: [:create, :destroy]
   end
 
-  resources :users, only: [:new, :create, :index, :show, :edit, :update] , path_names: { new: 'sign_up' }
-  
+  resources :users, only: [:new, :create, :index, :show, :edit, :update] , path_names: { new: 'sign_up' } do
+    resource :relationships, only: [:create, :destroy]
+
+    get 'followings' => 'relationships#followings', as: 'followings'
+    get 'followers' => 'relationships#followers', as: 'followers'
+
+  end
+
   resource :session
   resources :passwords, param: :token
   
