@@ -27,16 +27,30 @@ class User < ApplicationRecord
     profile_image.variant(resize_to_limit: [width, height]).processed
   end
 
+  #フォロー関係定義
   def follow(user)
     relationships.create(followed_id: user.id)
   end
-  
   def unfollow(user)
     relationships.find_by(followed_id: user.id).destroy
   end
-
   def following?(user)
     followings.include?(user)
+  end
+  
+  #サーチ関係定義
+  def self.looks(search, word)
+    if search == "perfect_match"
+      @user = User.where("name LIKE ?", "#{word}")
+    elsif search == "forward_match"
+      @user = User.where("name LIKE ?", "#{word}%")
+    elsif search == "backward_match"
+      @user = User.where("name LIKE ?", "%#{word}")
+    elsif search == "partial_match"
+      @user = User.where("name LIKE ?", "%#{word}%")
+    else
+      @user = User.all
+    end
   end
 
   normalizes :email_address, with: ->(e) { e.strip.downcase }

@@ -27,15 +27,15 @@
 
   <body>
     <%= render 'layouts/header' %>
-    
-      <!--フラッシュメッセージ-->
+
+    <main>
+          <!--フラッシュメッセージ-->
       <div>
         <% flash.each do |message_type, message| %>
           <p id="notice" class="text-success ms-3 mt-2"><%= message %></p>
         <% end %>
       </div>
-
-    <main>
+      <%= render 'searches/form' %>
       <%= yield %>
     </main>
 
