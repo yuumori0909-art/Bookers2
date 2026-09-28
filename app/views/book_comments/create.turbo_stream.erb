@@ -1,0 +1,8 @@
+<%= turbo_stream.update "book-comments-comment" do %>
+  <%= render 'book_comments/comment', book: @book , book_comment: @book_comment %>
+<% end %>
+
+
+<%= turbo_stream.update "book-comments-form" do %>
+  <%= render 'book_comments/form', book: @book , book_comment: @book_comment %>
+<% end %>

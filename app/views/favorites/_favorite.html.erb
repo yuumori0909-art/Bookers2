@@ -1,0 +1,16 @@
+<div id="favorites<%= book.id %>">
+  <% if book.favorited_by?(Current.user) %>
+    <p>
+      <% favorite = Current.user.favorites.find_by(book_id: book.id) %>
+      <%= link_to book_favorites_path(book, favorite), data: { turbo_method: :delete } do %>
+        ♥<%= book.favorites.count %>
+      <% end %>
+    </p>
+  <% else %>
+    <p>
+      <%= link_to book_favorites_path(book), data: { turbo_method: :post } do %>
+        ♡<%= book.favorites.count %>
+      <% end %>
+    </p>
+  <% end %>
+</div>

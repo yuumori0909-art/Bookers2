@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get "search" => "searches#search"
   resources :books do
     resources :book_comments, only: [:create, :destroy]
-    resource :favorite, only: [:create, :destroy]
+    resource :favorites, only: [:create, :destroy]
   end
   resources :users, only: [:new, :create, :index, :show, :edit, :update] , path_names: { new: 'sign_up' } do
     resource :relationships, only: [:create, :destroy]
