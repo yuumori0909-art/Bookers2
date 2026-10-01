@@ -23,6 +23,10 @@ class Book < ApplicationRecord
     end
   end
 
+  #レビュー関連定義
+  scope :latest, -> { order(created_at: :desc) }
+  scope :star_count, -> { order(score: :desc) }
+
   # 空チェック
   validates :title, presence: true
   # 空チェック ＆ 200文字以内であること

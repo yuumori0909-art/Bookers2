@@ -25,6 +25,7 @@
                   <% end %>
                   </td>
                   <td>コメント数：<%= @book.book_comments.count %></td>
+                  <td><div id="show_raty" data-score="<%= @book.score %>"></div></td>
                   <% if @user == Current.user %>
                      <td><%= link_to "Edit", edit_book_path(@book), class: "btn btn-success" %></td>
                   <% end %>

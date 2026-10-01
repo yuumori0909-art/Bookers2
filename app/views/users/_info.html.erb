@@ -43,6 +43,13 @@
       <p>Opinion</p>
       <%= f.text_area :body, class: "form-control" %>
     </div>
+
+    <div class="field">
+      <p>Tag</p>
+      <%= f.text_field :category, class: "form-control" %>
+    </div>
+    
+    <div id="post_raty"></div>
     
     <div class="actions mt-2">
       <%= f.submit 'Create Book', class: "btn btn-success" %>
