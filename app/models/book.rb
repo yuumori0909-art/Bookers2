@@ -2,6 +2,12 @@ class Book < ApplicationRecord
 
   belongs_to :user
   has_many :favorites, dependent: :destroy
+  def self.sort_by_favorites_last_week
+    to = Time.current
+    from = 1.week.ago
+    Book.all.sort_by { |book| book.favorites.where(created_at: from..to).size }.reverse
+  end
+
   has_many :book_comments, dependent: :destroy
 
   def favorited_by?(user)

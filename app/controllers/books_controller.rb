@@ -21,6 +21,8 @@ class BooksController < ApplicationController
       @books = Book.latest
     elsif params[:star_count]
       @books = Book.star_count
+    elsif params[:favorite_count] 
+      @books = Book.sort_by_favorites_last_week
     else
       @books = Book.all
     end
@@ -65,8 +67,8 @@ class BooksController < ApplicationController
   end
 
   def is_matching_login_user
-    user = User.find(params[:id])
-    unless user.id == Current.user.id
+    book = Book.find(params[:id])
+    unless book.user.id == Current.user.id 
       redirect_to books_path
     end
   end
