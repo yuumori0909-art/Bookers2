@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   allow_unauthenticated_access only: [:new, :create] 
+  before_action :ensure_guest_user, only: [:edit]
  
   def new
     @user = User.new
@@ -55,5 +56,12 @@ class UsersController < ApplicationController
       redirect_to user_path(Current.user.id)
     end
   end
+
+  def ensure_guest_user
+    @user = User.find(params[:id])
+    if @user.guest_user?
+      redirect_to user_path(Current.user) , notice: "ゲストユーザーはプロフィール編集画面へ遷移できません。"
+    end
+  end 
 
 end

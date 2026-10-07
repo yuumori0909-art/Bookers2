@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   end
   resource :session
   resources :passwords, param: :token
+  post "guest_sign_in", to: "guest_sessions#create", as: :guest_sign_in
+  resources :rooms, only: [:create, :show]
+  resources :messages, only: [:create]
   
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

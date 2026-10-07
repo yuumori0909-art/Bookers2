@@ -25,11 +25,18 @@
   <div class="row">
     <% if Current.user != user %>
       <%= render 'relationships/btn', user: user %>
-      <% else %>
+    <% elsif !user.guest_user? %>
       <%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block" do %>
-      <i class="fas fa-user-cog"></i>
+        <i class="fas fa-user-cog"></i>
       <% end %>
     <% end %>
+     <% if Current.user != @user && Current.user.following?(@user) && @user.following?(Current.user) %>
+        <% if @is_room == true %>
+            <%= link_to "cahtへ", room_path(@room_id) %>
+          <% else %>
+            <%= link_to "cahtを始める", rooms_path(user_id: @user.id), data: { turbo_method: :post } %>
+        <% end %>
+      <% end %> 
   </div>
 
   <h2 class="mt-2">New book</h2>

@@ -4,6 +4,9 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :book_comments, dependent: :destroy
   has_many :books, dependent: :destroy
+  has_many :user_rooms, dependent: :destroy
+  has_many :rooms, through: :user_rooms
+  has_many :messages, dependent: :destroy
   has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
   has_many :followings, through: :relationships, source: :followed
   
@@ -16,8 +19,19 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6 }, allow_nil: true 
   validates :introduction, length: { maximum: 50 } 
  
-  
   has_one_attached :profile_image
+
+  GUEST_USER_EMAIL = "guest@example.com"
+  def self.guest
+    find_or_create_by!(email_address: GUEST_USER_EMAIL) do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.name = "guestuser"
+    end
+  end
+
+  def guest_user?
+    email_address == GUEST_USER_EMAIL
+  end
 
   def get_profile_image(width, height)
     unless profile_image.attached?

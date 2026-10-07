@@ -1,0 +1,20 @@
+<div class="container">
+  <h2><%= @another_user.name %> さんとのチャット</h2>
+
+  <div class="messages mb-4">
+    <% @messages.each do |message| %>
+      <div class="message mb-2">
+        <strong><%= message.user.name %>:</strong>
+        <span><%= message.body %></span>
+      </div>
+    <% end %>
+  </div>
+
+  <%= form_with model: @message do |f| %>
+    <%= f.hidden_field :room_id, value: @room.id %>
+    <div class="form-group mb-2">
+      <%= f.text_area :body, class: "form-control", rows: 3, placeholder: "メッセージを入力（140文字まで）" %>
+    </div>
+    <%= f.submit "送信", class: "btn btn-success" %>
+  <% end %>
+</div>
