@@ -35,6 +35,7 @@ class BooksController < ApplicationController
   def show
     @book_new = Book.new
     @book = Book.find(params[:id])
+    @book.increment!(:view_counts)
     @user = @book.user
     @current_user = Current.user
     @book_comment = BookComment.new 
